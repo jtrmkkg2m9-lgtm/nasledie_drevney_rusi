@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Образовательный проект о традициях, истории и художественном языке древнерусской вышивки.">
+<title>Наследие Древней Руси — искусство вышивки</title>
+<style>
+:root{
+ --linen:#f4ecd9;--paper:#fbf6e9;--ink:#38291f;--muted:#756354;
+ --red:#8d2928;--red2:#b4483c;--gold:#b38a50;--line:#d9c9aa;
+ --green:#59634b;--shadow:0 14px 40px rgba(57,39,24,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--linen);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.68}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;z-index:-1;background-image:radial-gradient(#9e8763 .6px,transparent .6px);background-size:7px 7px}
+a{color:var(--red)}
+button{font:inherit}
+.topline{height:8px;background:repeating-linear-gradient(90deg,var(--red) 0 18px,var(--gold) 18px 22px,var(--paper) 22px 27px,var(--red) 27px 31px)}
+header{position:sticky;top:0;z-index:20;background:rgba(251,246,233,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navwrap{max-width:1180px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:bold;letter-spacing:.04em}
+.brandmark{width:42px;height:42px;border:2px solid var(--red);display:grid;place-items:center;color:var(--red);font-size:23px;transform:rotate(45deg)}
+.brandmark span{transform:rotate(-45deg)}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:14px}
+nav a:hover{color:var(--red);text-decoration:underline}
+.menu{display:none;border:1px solid var(--line);background:var(--paper);padding:7px 11px;color:var(--red)}
+.hero{max-width:1180px;margin:34px auto 0;padding:0 22px}
+.hero-panel{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:clamp(30px,6vw,76px);text-align:center}
+.hero-panel:before,.hero-panel:after{content:"✦ ❖ ✦ ❖ ✦ ❖ ✦";position:absolute;left:0;right:0;color:var(--red);letter-spacing:12px;font-size:17px;opacity:.8}
+.hero-panel:before{top:13px}.hero-panel:after{bottom:13px}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;color:var(--red);font-size:12px;font-weight:bold}
+h1,h2,h3{font-weight:normal;line-height:1.18}
+h1{font-size:clamp(39px,7vw,76px);margin:16px 0;color:var(--red);text-shadow:1px 1px #e5d3b5}
+.hero p{max-width:700px;margin:0 auto 24px;font-size:18px;color:var(--muted)}
+.ornament{color:var(--red);letter-spacing:9px;font-size:20px;margin:13px 0}
+.btn{display:inline-block;background:var(--red);color:#fff8e9;text-decoration:none;border:1px solid var(--red);padding:11px 20px;transition:.2s}
+.btn:hover{background:#68201f;transform:translateY(-2px)}
+.btn.secondary{background:transparent;color:var(--red)}
+main{max-width:1180px;margin:0 auto;padding:0 22px 70px}
+section{padding:68px 0 10px}
+.section-head{text-align:center;max-width:760px;margin:0 auto 30px}
+.kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:bold}
+h2{font-size:clamp(30px,4vw,43px);color:var(--red);margin:8px 0 12px}
+.section-head p{color:var(--muted);margin:0}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin:16px auto;max-width:330px}
+.rule:before,.rule:after{content:"";height:1px;background:var(--gold);flex:1}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);padding:23px;box-shadow:0 5px 18px rgba(57,39,24,.05)}
+.card h3{color:var(--red);font-size:23px;margin:7px 0}
+.card p{margin:8px 0;color:var(--muted)}
+.icon{font-size:31px;color:var(--red)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.note{background:#eee2c9;border-left:4px solid var(--gold);padding:17px 20px;color:#594733}
+.pattern{background:var(--red);color:#f9efd9;padding:26px;border:8px double #d8b77b;outline:1px solid var(--red);text-align:center}
+.pattern .motifs{font-size:34px;letter-spacing:9px;line-height:1.7}
+.pattern small{display:block;letter-spacing:.15em;text-transform:uppercase;color:#f1d9ae}
+.symbol{display:flex;gap:15px;align-items:flex-start}
+.symbol-mark{min-width:62px;height:62px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--red);font-size:27px;background:#f4ead5}
+.timeline{border-left:2px solid var(--gold);margin:0 0 0 12px;padding-left:26px}
+.event{position:relative;margin:0 0 25px}
+.event:before{content:"";position:absolute;left:-34px;top:7px;width:13px;height:13px;background:var(--red);border:3px solid var(--linen);outline:1px solid var(--red);border-radius:50%}
+.event strong{color:var(--red);font-size:18px}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.step{background:var(--paper);border:1px solid var(--line);padding:20px 20px 20px 65px;position:relative}
+.step:before{counter-increment:step;content:counter(step,decimal-leading-zero);position:absolute;left:18px;top:18px;color:var(--red);font-size:24px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.swatch{min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:#fff9ed;border:1px solid var(--line);position:relative;overflow:hidden}
+.swatch:before{content:"";position:absolute;inset:8px;border:1px dashed #c8a77b;pointer-events:none}
+.swatch b{font-size:27px;color:var(--red);letter-spacing:6px;z-index:1}
+.swatch span{display:block;color:var(--muted);font-size:13px;letter-spacing:0}
+.accordion{max-width:850px;margin:auto}
+details{background:var(--paper);border:1px solid var(--line);margin:10px 0;padding:15px 19px}
+summary{cursor:pointer;color:var(--red);font-size:19px}
+details p{color:var(--muted);margin-bottom:3px}
+.quiz{max-width:760px;margin:auto;background:var(--paper);border:1px solid var(--line);padding:26px}
+.quiz button{display:block;width:100%;text-align:left;margin:9px 0;padding:10px 13px;border:1px solid var(--line);background:#fffaf0;color:var(--ink);cursor:pointer}
+.quiz button:hover{border-color:var(--red)}
+#quizResult{font-weight:bold;color:var(--green);min-height:28px;margin-top:12px}
+footer{background:#3b2921;color:#f5ead5;text-align:center;padding:36px 20px;margin-top:50px}
+footer .ornament{color:#d7b77c}
+footer p{max-width:750px;margin:8px auto;color:#dfcfb5;font-size:14px}
+.small{font-size:13px;color:var(--muted)}
+@media(max-width:850px){nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--paper);padding:16px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.menu{display:block}.grid{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.two-col,.steps,.gallery{grid-template-columns:1fr}.hero-panel{padding:48px 20px}.hero p{font-size:16px}.navwrap{padding:10px 16px}section{padding-top:48px}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+ <div class="navwrap">
+  <a class="brand" href="#home"><span class="brandmark"><span>✥</span></span><span>Наследие Древней Руси</span></a>
+  <button class="menu" id="menuBtn" aria-label="Открыть меню">☰ Разделы</button>
+  <nav id="nav">
+   <a href="#history">История</a><a href="#meaning">Символы</a><a href="#colors">Цвета</a>
+   <a href="#techniques">Техники</a><a href="#life">В быту</a><a href="#heritage">Сегодня</a><a href="#quiz">Проверка знаний</a>
+  </nav>
+ </div>
+</header>
+
+<div class="hero" id="home">
+ <div class="hero-panel">
+  <div class="eyebrow">Традиции • мастерство • память поколений</div>
+  <div class="ornament">❖ ✥ ❖ ✥ ❖</div>
+  <h1>Наследие<br>Древней Руси</h1>
+  <p>Путешествие в мир традиционной вышивки — ремесла, в котором соединяются повседневная жизнь, художественный вкус и культурная память.</p>
+  <a class="btn" href="#history">Начать путешествие</a>
+  <div class="ornament">✥ ❖ ✥ ❖ ✥</div>
+  <div class="small">Образовательный проект о народной вышивке</div>
+ </div>
+</div>
+
+<main>
+<section id="intro">
+ <div class="section-head"><div class="kicker">Нить времени</div><h2>Вышивка — больше, чем украшение</h2><div class="rule">✥</div>
+ <p>Ручная вышивка украшала одежду и предметы домашнего обихода. Она требовала терпения, точности и мастерства, а узоры становились частью узнаваемого облика местной традиции.</p></div>
+ <div class="two-col">
+  <div class="pattern"><small>Орнамент как язык формы</small><div class="motifs">✥ ◇ ✣ ◇ ✥</div><div class="motifs">╳ ❖ ╳ ❖ ╳</div><small>Ритм • повтор • симметрия</small></div>
+  <div><h3 style="color:var(--red)">Почему это искусство важно?</h3><p>Вышитые вещи сопровождали человека в быту и празднике. По материалу, цвету, композиции и технике можно изучать особенности разных регионов и эпох.</p><div class="note"><b>Важно помнить:</b> значение орнаментов могло различаться в зависимости от местности, времени и семейной традиции. Не каждый узор имел одно общее для всей Руси толкование.</div></div>
+ </div>
+</section>
+
+<section id="history">
+ <div class="section-head"><div class="kicker">Раздел первый</div><h2>История древнерусской вышивки</h2><div class="rule">✥</div>
+ <p>История вышивки складывалась постепенно. До наших дней дошло не всё: ткань и нити плохо сохраняются в земле, поэтому исследователи изучают археологические находки, изображения, письменные свидетельства и более поздние образцы народного костюма.</p></div>
+ <div class="two-col">
+  <div class="timeline">
+   <div class="event"><strong>Раннее Средневековье</strong><p>На территории Древней Руси существовали навыки обработки ткани и украшения одежды. Археологические находки металлических деталей и фрагментов текстиля помогают представить костюм той эпохи.</p></div>
+   <div class="event"><strong>IX–XIII века</strong><p>Развивались ремёсла и торговые связи. Вещи из тканей и украшения одежды отражали достаток, положение человека и культурные контакты.</p></div>
+   <div class="event"><strong>Позднее Средневековье и новое время</strong><p>Региональные традиции вышивки продолжали развиваться. Сохранившиеся образцы более поздних столетий дают богатый материал для изучения техник и орнаментов.</p></div>
+   <div class="event"><strong>XIX–XX века</strong><p>Этнографы и музейные собиратели активно фиксировали народный костюм, полотенца и вышитые предметы, благодаря чему многие традиции стали доступны для изучения.</p></div>
+  </div>
+  <div class="card"><div class="icon">⌂</div><h3>Что вышивали?</h3><p>Рубахи, головные уборы, полотенца, скатерти, детали праздничного костюма и домашнего текстиля. Назначение вещи влияло на расположение и плотность узора.</p><p class="small">Историческая оговорка: привычные нам яркие музейные комплекты часто относятся к более позднему времени, а не непосредственно к X–XIII векам.</p></div>
+ </div>
+</section>
+
+<section id="meaning">
+ <div class="section-head"><div class="kicker">Раздел второй</div><h2>Орнаменты и их образы</h2><div class="rule">✥</div>
+ <p>Геометрические и растительные мотивы создавали ритм и украшали ткань. Некоторые мотивы исследователи связывают с представлениями о природе и устройстве мира, однако трактовки требуют осторожности.</p></div>
+ <div class="grid">
+  <article class="card symbol"><div class="symbol-mark">◇</div><div><h3>Ромб и геометрия</h3><p>Ромб, крест, меандр и другие фигуры часто встречаются в народном орнаменте. Их сочетания создают повторяющийся ритм и симметрию.</p></div></article>
+  <article class="card symbol"><div class="symbol-mark">☼</div><div><h3>Солнечные мотивы</h3><p>Круглые и лучевые формы напоминают солнце. В народном искусстве солнечный образ нередко связывают со светом, теплом и жизнью.</p></div></article>
+  <article class="card symbol"><div class="symbol-mark">♧</div><div><h3>Растительный узор</h3><p>Ветви, листья и цветы передают связь с природой. Такие мотивы особенно разнообразны в вышивке более позднего времени.</p></div></article>
+  <article class="card symbol"><div class="symbol-mark">♢</div><div><h3>Крест и пересечение</h3><p>Крестовые формы встречаются в орнаментах разных культур. Их смысл зависит от контекста, композиции и исторической эпохи.</p></div></article>
+  <article class="card symbol"><div class="symbol-mark">♜</div><div><h3>Птицы и животные</h3><p>Стилизованные изображения птиц и зверей встречаются в народном декоративном искусстве. Они могли быть частью праздничного и символического оформления.</p></div></article>
+  <article class="card symbol"><div class="symbol-mark">✥</div><div><h3>Повторяющийся узор</h3><p>Повтор — один из главных принципов орнамента. Он помогает выстроить композицию и подчеркнуть край одежды или полотна.</p></div></article>
+ </div>
+ <p class="small" style="text-align:center;margin-top:16px">Приведённые объяснения — обобщённые культурные ассоциации, а не универсальный словарь древнерусских символов.</p>
+</section>
+
+<section id="colors">
+ <div class="section-head"><div class="kicker">Раздел третий</div><h2>Цвета и материалы</h2><div class="rule">✥</div>
+ <p>Цветовая гамма зависела от доступных красителей, материала основы, назначения изделия и местной традиции. Красная нить особенно заметна во многих образцах народной вышивки.</p></div>
+ <div class="grid">
+  <div class="card"><div class="icon">●</div><h3>Красный</h3><p>Выразительный цвет, который часто становился главным акцентом орнамента. В разных традициях его могли связывать с праздничностью и жизненной силой.</p></div>
+  <div class="card"><div class="icon" style="color:#d8c9a8">●</div><h3>Белый и натуральный</h3><p>Цвет льняной или отбелённой ткани часто служил фоном, на котором хорошо читался вышитый узор.</p></div>
+  <div class="card"><div class="icon" style="color:#333">●</div><h3>Чёрный и тёмный</h3><p>Тёмные нити могли создавать контраст, подчёркивать контур и дополнять красно-белую композицию.</p></div>
+ </div>
+ <div class="two-col" style="margin-top:22px">
+  <div class="card"><h3>Традиционные материалы</h3><p><b>Лён.</b> Прочная натуральная ткань, широко применявшаяся в домашнем текстиле и одежде.</p><p><b>Шерсть.</b> Использовалась в текстильных изделиях и для отдельных видов декоративной работы.</p><p><b>Нити.</b> Льняные, шерстяные и позднее хлопчатобумажные — в зависимости от времени и доступности.</p></div>
+  <div class="card"><h3>Почему важна основа?</h3><p>Плотность переплетения нитей влияет на вид стежка и точность счёта. На полотняной ткани удобно выполнять счётные швы, ориентируясь на нити основы и утка.</p><div class="note">Для учебного панно натуральная льняная или хлопчатобумажная ткань поможет создать выразительный фон для красной вышивки.</div></div>
+ </div>
+</section>
+
+<section id="techniques">
+ <div class="section-head"><div class="kicker">Раздел четвёртый</div><h2>Техники вышивания</h2><div class="rule">✥</div>
+ <p>Техника определяет фактуру, плотность и характер узора. Названия и способы выполнения могли отличаться по регионам.</p></div>
+ <div class="steps">
+  <div class="step"><h3>Счётные швы</h3><p>Выполняются с опорой на нити ткани. Такой способ помогает создавать геометрические мотивы и повторяющиеся ряды.</p></div>
+  <div class="step"><h3>Крест</h3><p>Стежки пересекаются, образуя крестик. Техника широко известна в более поздней народной и современной вышивке.</p></div>
+  <div class="step"><h3>Роспись</h3><p>Двусторонний шов с чередованием коротких и длинных стежков. Им можно создавать контурные геометрические композиции.</p></div>
+  <div class="step"><h3>Набор</h3><p>Счётная техника, при которой узор формируется стежками по горизонтали или вертикали, часто с геометрическим ритмом.</p></div>
+  <div class="step"><h3>Стебельчатый шов</h3><p>Шов из последовательных наклонных стежков, подходящий для линий и растительных мотивов.</p></div>
+  <div class="step"><h3>Тамбурный шов</h3><p>Цепочка из петельных звеньев. Вышивка получается гибкой и хорошо подходит для плавных линий.</p></div>
+ </div>
+ <div class="note" style="margin-top:20px"><b>Для моего панно:</b> перед вышиванием QR-кода важно проверить его сканирование на пробном образце. Узнаваемость кода важнее декоративной сложности: модули должны оставаться чёткими, контрастными и не сливаться с орнаментом.</div>
+</section>
+
+<section id="life">
+ <div class="section-head"><div class="kicker">Раздел пятый</div><h2>Вышивка в повседневной жизни</h2><div class="rule">✥</div>
+ <p>Вышивка была частью предметного мира: она украшала вещи, подчёркивала их назначение и помогала сохранять местные художественные особенности.</p></div>
+ <div class="gallery">
+  <div class="swatch"><div><b>✥ ◇ ✥</b><span>Рубаха и детали костюма</span></div></div>
+  <div class="swatch"><div><b>❖ ╳ ❖</b><span>Полотенца и рушники</span></div></div>
+  <div class="swatch"><div><b>◇ ✣ ◇</b><span>Домашний текстиль</span></div></div>
+ </div>
+ <div class="two-col" style="margin-top:20px">
+  <div><h3 style="color:var(--red)">Одежда</h3><p>Вышивку размещали на заметных деталях одежды — например, у ворота, на рукавах или подоле. Композиция зависела от кроя и региональной традиции.</p></div>
+  <div><h3 style="color:var(--red)">Полотенца</h3><p>Вышитые полотенца могли использоваться в доме и во время обрядов и праздников. Их оформление нередко отличалось от повседневного текстиля.</p></div>
+ </div>
+</section>
+
+<section id="heritage">
+ <div class="section-head"><div class="kicker">Раздел шестой</div><h2>Традиция продолжается</h2><div class="rule">✥</div>
+ <p>Сегодня народная вышивка живёт в музейных коллекциях, исследовательских проектах, мастерских и творчестве современных авторов.</p></div>
+ <div class="two-col">
+  <div class="pattern"><small>Память в каждом стежке</small><div class="motifs">✥ ❖ ✥</div><div class="motifs">◇ ✣ ◇</div><small>От традиции — к новому творчеству</small></div>
+  <div><h3 style="color:var(--red)">Зачем сохранять ремесло?</h3><p>Изучение вышивки помогает лучше понимать историю быта, развитие материалов и художественные особенности разных регионов. Практическая работа развивает аккуратность, терпение и уважение к ручному труду.</p><p>Моё панно соединяет традиционную технику ручной вышивки с современной цифровой возможностью — QR-кодом, который открывает эту страницу и знакомит зрителя с историей ремесла.</p></div>
+ </div>
+</section>
+
+<section id="quiz">
+ <div class="section-head"><div class="kicker">Проверь себя</div><h2>Небольшая викторина</h2><div class="rule">✥</div><p>Проверь, что ты запомнил(а) о традиционной вышивке.</p></div>
+ <div class="quiz">
+  <div id="question" style="font-size:20px;color:var(--red);font-weight:bold">1. Какая ткань традиционно широко использовалась в домашнем текстиле?</div>
+  <div id="answers">
+   <button data-correct="false">Синтетический трикотаж</button>
+   <button data-correct="true">Лён</button>
+   <button data-correct="false">Пластиковая сетка</button>
+  </div>
+  <div id="quizResult" aria-live="polite"></div>
+  <button id="next" class="btn" style="display:none;text-align:center;color:white;background:var(--red);width:auto">Следующий вопрос →</button>
+ </div>
+</section>
+
+<section id="sources">
+ <div class="section-head"><div class="kicker">Для любознательных</div><h2>Как изучают вышивку?</h2><div class="rule">✥</div>
+ <p>Чтобы глубже познакомиться с темой, полезно обращаться к музейным коллекциям, каталогам народного костюма и научным публикациям.</p></div>
+ <div class="accordion">
+  <details><summary>Музейные коллекции</summary><p>В музеях можно изучать подлинные предметы: одежду, полотенца, фрагменты тканей и инструменты. Обращай внимание на датировку, регион и описание экспоната.</p></details>
+  <details><summary>Этнографические исследования</summary><p>Этнографические описания помогают понять, как вещи использовались в повседневной жизни и обрядах, а также чем различались местные традиции.</p></details>
+  <details><summary>Как отличать факт от предположения?</summary><p>Проверяй, есть ли у утверждения конкретный источник. Особенно осторожно относись к популярным объяснениям «тайного значения» каждого знака: такие трактовки не всегда подтверждены историческими данными.</p></details>
+ </div>
+</section>
+</main>
+<footer>
+ <div class="ornament">❖ ✥ ❖ ✥ ❖</div>
+ <h2 style="color:#f3dfbd;margin:5px">Наследие Древней Руси</h2>
+ <p>Учебно-творческий проект о традициях ручной вышивки. Создано с уважением к народному мастерству и культурному наследию.</p>
+ <p>«Каждый стежок — часть большой истории»</p>
+ <div class="ornament">✥ ❖ ✥</div>
+</footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const questions=[
+ {q:"1. Какая ткань традиционно широко использовалась в домашнем текстиле?",a:["Синтетический трикотаж","Лён","Пластиковая сетка"],c:1,why:"Верно! Лён был важным материалом для тканей и домашнего текстиля."},
+ {q:"2. Что помогает создавать счётные геометрические узоры?",a:["Ориентация на нити ткани","Рисование по стеклу","Лепка из глины"],c:0,why:"Именно так: счётные швы выполняют, ориентируясь на переплетение нитей."},
+ {q:"3. Почему нельзя приписывать каждому орнаменту одно точное значение?",a:["Узоры не имеют формы","Значения могли различаться по регионам и эпохам","Все узоры придуманы недавно"],c:1,why:"Правильно. Трактовки зависят от контекста и не всегда однозначны."},
+ {q:"4. Где можно изучать подлинные образцы старинного текстиля?",a:["В музейных коллекциях","Только в рекламе","Только в компьютерных играх"],c:0,why:"Да! Музейные предметы и их каталоги — важные источники знаний."}
+];
+let qi=0,score=0;
+const qEl=document.getElementById('question'),aEl=document.getElementById('answers'),rEl=document.getElementById('quizResult'),next=document.getElementById('next');
+function render(){let q=questions[qi];qEl.textContent=q.q;aEl.innerHTML='';q.a.forEach((t,i)=>{let b=document.createElement('button');b.textContent=t;b.addEventListener('click',()=>{if(aEl.dataset.done)return;aEl.dataset.done="1";if(i===q.c){score++;rEl.textContent=q.why}else{rEl.textContent="Не совсем. "+q.why}Array.from(aEl.children).forEach((x,j)=>{x.disabled=true;if(j===q.c)x.style.borderColor="var(--green)"});next.style.display="inline-block";});aEl.appendChild(b)});rEl.textContent='';next.style.display='none';aEl.dataset.done=''}
+next.addEventListener('click',()=>{qi++;if(qi<questions.length){render()}else{qEl.textContent="Викторина завершена!";aEl.innerHTML="";rEl.textContent=`Твой результат: ${score} из ${questions.length}. Спасибо за участие!`;next.textContent="Пройти ещё раз";next.style.display="inline-block";next.onclick=()=>{qi=0;score=0;next.onclick=null;next.textContent="Следующий вопрос →";render()}}});
+render();
+</script>
+</body>
+</html>
